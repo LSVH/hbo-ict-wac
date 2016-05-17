@@ -44,13 +44,43 @@
         <url-pattern>/L2/P2/doCalculation</url-pattern>
     </servlet-mapping>
 
-    <!-- doRegister servlet -->
+    <!-- L3 doRegister servlet -->
     <servlet>
-        <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>L3.controller.RegisterServlet</servlet-class>
+        <servlet-name>L3RegisterServlet</servlet-name>
+        <servlet-class>L3.L3RegisterServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-name>L3RegisterServlet</servlet-name>
         <url-pattern>/L3/doRegister</url-pattern>
+    </servlet-mapping>
+
+    <!-- L4 doRegister servlet -->
+    <servlet>
+        <servlet-name>L4RegisterServlet</servlet-name>
+        <servlet-class>L4.controller.L4RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>L4RegisterServlet</servlet-name>
+        <url-pattern>/L4/doRegister</url-pattern>
+    </servlet-mapping>
+
+    <!-- L4 doLogin servlet -->
+    <servlet>
+        <servlet-name>L4LoginServlet</servlet-name>
+        <servlet-class>L4.controller.L4LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>L4LoginServlet</servlet-name>
+        <url-pattern>/L4/doLogin</url-pattern>
+    </servlet-mapping>
+
+    <!-- L4 doLogout servlet -->
+    <servlet>
+        <servlet-name>L4LogoutServlet</servlet-name>
+        <servlet-class>L4.controller.L4LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>L4LogoutServlet</servlet-name>
+        <url-pattern>/L4/doLogout</url-pattern>
     </servlet-mapping>
 </web-app>

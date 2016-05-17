@@ -1,18 +1,17 @@
-package L3.controller;
+package L3;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import L3.model.User;
+import L4.model.User;
 
 @WebServlet(name = "L3/RegisterServlet")
-public class RegisterServlet extends HttpServlet {
+public class L3RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getParameter("register").equals("true")) {
             boolean passed = true;

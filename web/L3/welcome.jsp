@@ -1,4 +1,4 @@
-<%@ page import="L3.model.User" %><%
+<%@ page import="L4.model.User" %><%
     User u = (User) request.getAttribute("user");
 %>
 <!DOCTYPE html>

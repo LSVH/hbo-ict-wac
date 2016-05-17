@@ -1,0 +1,23 @@
+body {
+    text-align: center;
+}
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 5px solid lightgray;
+}
+th {
+    text-align: left;
+    vertical-align: top;
+    padding: 12px 48px 12px 24px;
+}
+td {
+    text-align: right;
+    padding: 12px 24px;
+}
+tr:nth-child(odd) {
+    background-color: lightgray;
+}
+small {
+    display: block;
+}
