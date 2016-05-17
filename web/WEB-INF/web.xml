@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <!-- Students servlet -->
+    <servlet>
+        <servlet-name>StudentsServlet</servlet-name>
+        <servlet-class>DAO.controller.StudentsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentsServlet</servlet-name>
+        <url-pattern>/DAO/Students</url-pattern>
+    </servlet-mapping>
+
+    <!-- Klassen servlet -->
+    <servlet>
+        <servlet-name>KlassenServlet</servlet-name>
+        <servlet-class>DAO.controller.KlassenServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>KlassenServlet</servlet-name>
+        <url-pattern>/DAO/Klassen</url-pattern>
+    </servlet-mapping>
+
+    <!-- doLogin servlet -->
+    <servlet>
+        <servlet-name>doLogin</servlet-name>
+        <servlet-class>L2.P1.doLogin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doLogin</servlet-name>
+        <url-pattern>/L2/P1/doLogin</url-pattern>
+    </servlet-mapping>
+
+    <!-- doCalculation servlet -->
+    <servlet>
+        <servlet-name>doCalculation</servlet-name>
+        <servlet-class>L2.P2.doCalculation</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doCalculation</servlet-name>
+        <url-pattern>/L2/P2/doCalculation</url-pattern>
+    </servlet-mapping>
+
+    <!-- doRegister servlet -->
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>L3.controller.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/L3/doRegister</url-pattern>
+    </servlet-mapping>
+</web-app>
