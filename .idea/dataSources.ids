@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Oracle - @localhost" uuid="53766074-c542-4d5d-92c4-74ecb0887cdd">
+    <database-info product="Oracle" version="Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production" jdbc-version="4.0" driver-name="Oracle JDBC driver" driver-version="12.1.0.2.0">
+      <extra-name-characters>$#</extra-name-characters>
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="ORACLE" format-version="2.5">
+      <schema id="1" name="OWNER">
+        <object-id>48</object-id>
+        <created-timestamp>2016-05-13.09:22:30</created-timestamp>
+        <modified-timestamp>2016-05-13.14:34:08</modified-timestamp>
+        <introspection-timestamp>2016-05-13.14:34:11</introspection-timestamp>
+      </schema>
+      <table id="2" parent="1" name="ITEMS">
+        <object-id>20248</object-id>
+        <created-timestamp>2016-05-13.09:22:30</created-timestamp>
+        <modified-timestamp>2016-05-13.11:40:49</modified-timestamp>
+        <organization>HEAP</organization>
+      </table>
+      <table id="3" parent="1" name="KLASSEN">
+        <object-id>20250</object-id>
+        <created-timestamp>2016-05-13.14:34:07</created-timestamp>
+        <modified-timestamp>2016-05-13.14:34:08</modified-timestamp>
+        <organization>HEAP</organization>
+      </table>
+      <table id="4" parent="1" name="STUDENTEN">
+        <object-id>20252</object-id>
+        <created-timestamp>2016-05-13.14:34:08</created-timestamp>
+        <modified-timestamp>2016-05-13.14:34:08</modified-timestamp>
+        <organization>HEAP</organization>
+      </table>
+      <column id="5" parent="2" name="TITLE">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR2(20)</data-type>
+      </column>
+      <column id="6" parent="2" name="SUMMARY">
+        <data-type>VARCHAR2(256)</data-type>
+      </column>
+      <column id="7" parent="2" name="CONTENT">
+        <data-type>VARCHAR2(1024)</data-type>
+      </column>
+      <column id="8" parent="2" name="PRIORITY">
+        <mandatory>1</mandatory>
+        <data-type>NUMBER(2)</data-type>
+        <default-expression>1</default-expression>
+      </column>
+      <column id="9" parent="2" name="DEADLINE">
+        <mandatory>1</mandatory>
+        <data-type>DATE</data-type>
+      </column>
+      <column id="10" parent="2" name="STATUS">
+        <mandatory>1</mandatory>
+        <data-type>NUMBER(1)</data-type>
+        <default-expression>0</default-expression>
+      </column>
+      <column id="11" parent="2" name="STUB">
+        <data-type>VARCHAR2(20)</data-type>
+      </column>
+      <index id="12" parent="2" name="ITEMS_PK">
+        <object-id>20249</object-id>
+        <created-timestamp>2016-05-13.09:22:31</created-timestamp>
+        <modified-timestamp>2016-05-13.09:22:31</modified-timestamp>
+        <columns>TITLE</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+        <tablespace-name>SYSTEM</tablespace-name>
+      </index>
+      <key id="13" parent="2" name="ITEMS_PK">
+        <modified-timestamp>2016-05-13.09:22:31</modified-timestamp>
+        <columns>TITLE</columns>
+        <initially-deferred>1</initially-deferred>
+        <underlying-index>ITEMS_PK</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="14" parent="3" name="KLASNR">
+        <mandatory>1</mandatory>
+        <data-type>NUMBER(9)</data-type>
+      </column>
+      <column id="15" parent="3" name="KLASCODE">
+        <data-type>VARCHAR2(10)</data-type>
+      </column>
+      <column id="16" parent="3" name="ASSISTENT">
+        <data-type>NUMBER(9)</data-type>
+      </column>
+      <index id="17" parent="3" name="K_PK">
+        <object-id>20251</object-id>
+        <created-timestamp>2016-05-13.14:34:07</created-timestamp>
+        <modified-timestamp>2016-05-13.14:34:07</modified-timestamp>
+        <columns>KLASNR</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+        <tablespace-name>SYSTEM</tablespace-name>
+      </index>
+      <key id="18" parent="3" name="K_PK">
+        <modified-timestamp>2016-05-13.14:34:07</modified-timestamp>
+        <columns>KLASNR</columns>
+        <initially-deferred>1</initially-deferred>
+        <underlying-index>K_PK</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="19" parent="3" name="K_ASSISTENT_FK">
+        <modified-timestamp>2016-05-13.14:34:08</modified-timestamp>
+        <columns>ASSISTENT</columns>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.STUDENTEN.S_PK</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="20" parent="4" name="STUDENTNR">
+        <mandatory>1</mandatory>
+        <data-type>NUMBER(9)</data-type>
+      </column>
+      <column id="21" parent="4" name="NAAM">
+        <data-type>VARCHAR2(25)</data-type>
+      </column>
+      <column id="22" parent="4" name="GEBOORTEDATUM">
+        <data-type>DATE</data-type>
+      </column>
+      <column id="23" parent="4" name="KLASNR">
+        <data-type>NUMBER(9)</data-type>
+      </column>
+      <index id="24" parent="4" name="S_PK">
+        <object-id>20253</object-id>
+        <created-timestamp>2016-05-13.14:34:08</created-timestamp>
+        <modified-timestamp>2016-05-13.14:34:08</modified-timestamp>
+        <columns>STUDENTNR</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+        <tablespace-name>SYSTEM</tablespace-name>
+      </index>
+      <key id="25" parent="4" name="S_PK">
+        <modified-timestamp>2016-05-13.14:34:08</modified-timestamp>
+        <columns>STUDENTNR</columns>
+        <initially-deferred>1</initially-deferred>
+        <underlying-index>S_PK</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="26" parent="4" name="S_KLASNR_FK">
+        <modified-timestamp>2016-05-13.14:34:08</modified-timestamp>
+        <columns>KLASNR</columns>
+        <initially-deferred>1</initially-deferred>
+        <ref-key>~.KLASSEN.K_PK</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
+  </data-source>
+</component>
