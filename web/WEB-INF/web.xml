@@ -54,6 +54,10 @@
         <url-pattern>/L3/doRegister</url-pattern>
     </servlet-mapping>
 
+
+    <!-- LES 4 -->
+
+
     <!-- L4 doRegister servlet -->
     <servlet>
         <servlet-name>L4RegisterServlet</servlet-name>
@@ -83,4 +87,83 @@
         <servlet-name>L4LogoutServlet</servlet-name>
         <url-pattern>/L4/doLogout</url-pattern>
     </servlet-mapping>
+    
+
+    <!-- LES 5 -->
+
+
+    <!-- L5 doRegister servlet -->
+    <servlet>
+        <servlet-name>L5RegisterServlet</servlet-name>
+        <servlet-class>L5.controller.L5RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>L5RegisterServlet</servlet-name>
+        <url-pattern>/L5/doRegister</url-pattern>
+    </servlet-mapping>
+
+    <!-- L5 doLogin servlet -->
+    <servlet>
+        <servlet-name>L5LoginServlet</servlet-name>
+        <servlet-class>L5.controller.L5LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>L5LoginServlet</servlet-name>
+        <url-pattern>/L5/doLogin</url-pattern>
+    </servlet-mapping>
+
+    <!-- L5 doLogout servlet -->
+    <servlet>
+        <servlet-name>L5LogoutServlet</servlet-name>
+        <servlet-class>L5.controller.L5LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>L5LogoutServlet</servlet-name>
+        <url-pattern>/L5/doLogout</url-pattern>
+    </servlet-mapping>
+
+    <!-- L5 Servlet Context Listener -->
+    <listener>
+        <listener-class>L5.utils.L5ServletContextListener</listener-class>
+    </listener>
+    
+
+    <!-- LES 6 -->
+
+
+    <!-- L6 doRegister servlet -->
+    <servlet>
+        <servlet-name>L6RegisterServlet</servlet-name>
+        <servlet-class>L6.controller.L6RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>L6RegisterServlet</servlet-name>
+        <url-pattern>/L6/doRegister</url-pattern>
+    </servlet-mapping>
+
+    <!-- L6 doLogin servlet -->
+    <servlet>
+        <servlet-name>L6LoginServlet</servlet-name>
+        <servlet-class>L6.controller.L6LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>L6LoginServlet</servlet-name>
+        <url-pattern>/L6/doLogin</url-pattern>
+    </servlet-mapping>
+
+    <!-- L6 doLogout servlet -->
+    <servlet>
+        <servlet-name>L6LogoutServlet</servlet-name>
+        <servlet-class>L6.controller.L6LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>L6LogoutServlet</servlet-name>
+        <url-pattern>/L6/doLogout</url-pattern>
+    </servlet-mapping>
+
+    <!-- L6 Servlet Context Listener -->
+    <listener>
+        <listener-class>L6.utils.L6ServletContextListener</listener-class>
+    </listener>
+
 </web-app>

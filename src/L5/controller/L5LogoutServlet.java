@@ -1,6 +1,8 @@
-package L4.controller;
+package L5.controller;
 
-import L4.model.L4User;
+import L5.model.L5BlogService;
+import L5.model.L5ServiceProvider;
+import L5.model.L5User;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -12,31 +14,21 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet(name = "L4LogoutServlet")
-public class L4LogoutServlet extends HttpServlet {
-    private ArrayList<L4User> users;
-
-    public void init() throws ServletException {
-        this.users = new ArrayList<L4User>();
-    }
+@WebServlet(name = "L5LogoutServlet")
+public class L5LogoutServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if ("true".equals(request.getParameter("logout"))) {
-            ServletContext context = request.getSession().getServletContext();
-
             // Empty all cookies
             Cookie[] cookies = request.getCookies();
             if (cookies != null) {
                 for (Cookie c : cookies) {
                     c.setValue("");
-                    c.setPath("/");
+                    c.setPath("/L5/");
                     c.setMaxAge(0);
                     response.addCookie(c);
                 }
             }
-
-            // Empty user context
-            context.removeAttribute("user");
         }
         response.sendRedirect("index.jsp");
     }

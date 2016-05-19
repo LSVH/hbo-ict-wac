@@ -1,9 +1,9 @@
-package L4.controller;
+package L6.controller;
 
-import L4.model.L4User;
+import L6.model.L6BlogService;
+import L6.model.L6ServiceProvider;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -11,24 +11,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 
-@WebServlet(name = "L4RegisterServlet")
-public class L4RegisterServlet extends HttpServlet {
-
-    private ArrayList<L4User> users;
-
-    public void init() throws ServletException {
-        this.users = new ArrayList<L4User>();
-    }
+@WebServlet(name = "L6RegisterServlet")
+public class L6RegisterServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ServletContext context = request.getSession().getServletContext();
-        if (context.getAttribute("user") != null) {
+        // Retrieve all data for the blog service
+        L6BlogService service = L6ServiceProvider.getBlogService();
+
+        if (service.getLoggedInUser(request) != null) {
             // Check if the user already logged in
             response.sendRedirect("account.jsp");
 
-        } else if (request.getParameter("register").equals("true")) {
+        } else if ("true".equals(request.getParameter("register"))) {
             // Prepare for logging in to the user
             String user = request.getParameter("user");
             String name = request.getParameter("name");
@@ -36,18 +31,19 @@ public class L4RegisterServlet extends HttpServlet {
             String pass = request.getParameter("pass");
             String pass2 = request.getParameter("pass2");
 
+            // Define whenever to continue the registration
             boolean passed  = !(
                     "".equals(user) ||
                     "".equals(name) ||
                     "".equals(mail) ||
                     "".equals(pass) ||
                     "".equals(pass2) ||
-                    userExists(user) ||
-                    !validatePassword(pass, pass2)
+                    service.searchUser(user) != null ||
+                    !service.confirmPassword(pass, pass2)
             );
 
+            // Display the error message when necessary
             request.setAttribute("errorUser", "".equals(user) ? "Please enter an username." : "");
-            request.setAttribute("errorUser", userExists(user) ? "That username is already taken." : "");
 
             request.setAttribute("errorName", "".equals(name) ? "Please enter your full name." : "");
 
@@ -55,17 +51,19 @@ public class L4RegisterServlet extends HttpServlet {
 
             request.setAttribute("errorPass", "".equals(pass) ? "Please enter a password." : "");
             request.setAttribute("errorPass", "".equals(pass2) ? "Please confirm the password." : "");
-            request.setAttribute("errorPass", !validatePassword(pass, pass2) ? "The password confirmation invalid." : "");
+
+            request.setAttribute("errorUser", service.searchUser(user) != null ? "That username is already taken." : "");
+            request.setAttribute("errorPass", !service.confirmPassword(pass, pass2) ? "The password confirmation check failed." : "");
 
             if (passed) {
-                // Continue registering
-                L4User u = new L4User(user, pass, name, mail);
-                users.add(u);
+                // Submit the registration
+                service.registerUser(user, name, mail, pass);
 
-                context.setAttribute("user", u);
-                context.setAttribute("userList", users);
-
+                // Create the cookies
                 response.addCookie(new Cookie("user", user));
+                response.addCookie(new Cookie("pass", pass));
+
+                // Serve the account page
                 response.sendRedirect("account.jsp");
             } else {
                 // Cancel the registration process
@@ -73,19 +71,5 @@ public class L4RegisterServlet extends HttpServlet {
                 rd.forward(request, response);
             }
         }
-    }
-
-    private boolean userExists(String user) {
-        boolean passed = false;
-        for (L4User u : users) {
-            if (u.getUser().equals(user)) {
-                passed = true;
-            }
-        }
-        return passed;
-    }
-
-    private boolean validatePassword(String primary, String secondary) {
-        return primary.equals(secondary);
     }
 }

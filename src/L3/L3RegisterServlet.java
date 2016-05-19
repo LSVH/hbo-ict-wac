@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import L4.model.User;
+import L4.model.L4User;
 
-@WebServlet(name = "L3/RegisterServlet")
+@WebServlet(name = "L3RegisterServlet")
 public class L3RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getParameter("register").equals("true")) {
@@ -54,8 +54,8 @@ public class L3RegisterServlet extends HttpServlet {
 
             RequestDispatcher rd = null;
             if (passed) {
-                request.setAttribute("user", new User(user, pass, name, mail));
-                rd = request.getRequestDispatcher("welcome.jsp");
+                request.setAttribute("user", new L4User(user, pass, name, mail));
+                rd = request.getRequestDispatcher("account.jsp");
             } else {
                 rd = request.getRequestDispatcher("register.jsp");
             }
