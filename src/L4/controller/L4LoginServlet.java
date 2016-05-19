@@ -1,6 +1,6 @@
 package L4.controller;
 
-import L4.model.User;
+import L4.model.L4User;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -13,19 +13,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet(name = "L4/LoginServlet")
+@WebServlet(name = "L4LoginServlet")
 public class L4LoginServlet extends HttpServlet {
-    private ArrayList<User> users;
+    private ArrayList<L4User> users;
 
     public void init() throws ServletException {
-        this.users = new ArrayList<User>();
+        this.users = new ArrayList<L4User>();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ServletContext context = request.getSession().getServletContext();
         if (context.getAttribute("user") != null) {
             // Check if the user already logged in
-            response.sendRedirect("welcome.jsp");
+            response.sendRedirect("account.jsp");
 
         } else if ("true".equals(request.getParameter("login"))) {
             // Prepare for logging in to the user
@@ -43,7 +43,7 @@ public class L4LoginServlet extends HttpServlet {
                 context.setAttribute("userList", users);
 
                 response.addCookie(new Cookie("user", user));
-                response.sendRedirect("welcome.jsp");
+                response.sendRedirect("account.jsp");
             } else {
                 // Cancel the login process
                 RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
@@ -52,8 +52,8 @@ public class L4LoginServlet extends HttpServlet {
         }
     }
 
-    private User searchUser(String user) {
-        for (User u : users) {
+    private L4User searchUser(String user) {
+        for (L4User u : users) {
             if (u.getUser().equals(user)) {
                 return u;
             }
@@ -66,7 +66,7 @@ public class L4LoginServlet extends HttpServlet {
     }
 
     private boolean validatePassword(String user, String pass) {
-        User u = searchUser(user);
+        L4User u = searchUser(user);
         return u != null && u.checkPassword(pass);
     }
 

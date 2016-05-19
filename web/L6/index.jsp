@@ -1,18 +1,6 @@
-<%
-    ServletContext context = request.getSession().getServletContext();
-
-    if (context.getAttribute("user") != null) {
-        response.sendRedirect("account.jsp");
-    } else {
-%>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>WAC - L4 : Login</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<%! String title = "Login"; %>
+<%! int level = 0; %>
+<%@ include file="header.jsp" %>
 <h1>Login to gain access to the system</h1>
 <form action="doLogin" method="post">
     <table>
@@ -53,6 +41,4 @@
         </tr>
     </table>
 </form>
-</body>
-</html>
-<% } %>
+<%@ include file="footer.jsp" %>

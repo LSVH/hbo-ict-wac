@@ -1,8 +1,8 @@
-<%@ page import="L4.model.User" %>
+<%@ page import="L4.model.L4User" %>
 <%@ page import="java.util.ArrayList" %><%
     ServletContext context = request.getSession().getServletContext();
 
-    User u = (User) context.getAttribute("user");
+    L4User u = (L4User) context.getAttribute("user");
     if ("".equals(u) || u == null) {
         response.sendRedirect("index.jsp");
     } else {
