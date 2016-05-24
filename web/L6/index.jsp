@@ -1,6 +1,9 @@
-<%! String title = "Login"; %>
-<%! int level = 0; %>
-<%@ include file="header.jsp" %>
+<%! String title = "Login"; %><%! int level = 0; %><%@ include file="header.jsp" %>
+<nav>
+    <span>Login</span>
+    <a href="posts.jsp">Posts</a>
+    <a href="register.jsp">Register</a>
+</nav>
 <h1>Login to gain access to the system</h1>
 <form action="doLogin" method="post">
     <table>
@@ -9,12 +12,7 @@
                 <label for="user">Username</label>
             </th>
             <td>
-                <%
-                    Object errorUser = request.getAttribute("errorUser");
-                    if (errorUser != null) {
-                        out.print("<small>"+errorUser+"</small>");
-                    }
-                %>
+                <small>${requestScope.errorUser}</small>
                 <input type="text" name="user" id="user" required>
             </td>
         </tr>
@@ -23,19 +21,13 @@
                 <label for="pass">Password</label>
             </th>
             <td>
-                <%
-                    Object errorPass = request.getAttribute("errorPass");
-                    if (errorPass != null) {
-                        out.print("<small>"+errorPass+"</small>");
-                    }
-                %>
+                <small>${requestScope.errorPass}</small>
                 <input type="password" name="pass" id="pass" required>
             </td>
         </tr>
         <tr>
             <td></td>
             <td>
-                <a href="register.jsp">Register</a>
                 <button type="submit" name="login" value="true">Login</button>
             </td>
         </tr>

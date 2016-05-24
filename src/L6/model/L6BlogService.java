@@ -10,8 +10,12 @@ public class L6BlogService {
     private ArrayList<L6User> users = new ArrayList<L6User>();
     private ArrayList<L6Post> posts = new ArrayList<L6Post>();
 
+    public ArrayList<L6Post> getPosts() {
+        return posts;
+    }
+
     public void addPostForUser(String subject, String text, L6User user) throws IllegalArgumentException {
-        if (subject != null || "".equals(subject) || text != null || "".equals(text)) {
+        if (subject == null || "".equals(subject) || text == null || "".equals(text) || user == null) {
             throw new IllegalArgumentException("Unable to continue with empty argument");
         } else {
             this.posts.add(new L6Post(subject, text));
