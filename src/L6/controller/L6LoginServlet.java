@@ -4,7 +4,6 @@ import L6.model.L6BlogService;
 import L6.model.L6ServiceProvider;
 import L6.model.L6User;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -55,8 +54,7 @@ public class L6LoginServlet extends HttpServlet {
                 response.sendRedirect("account.jsp");
             } else {
                 // Cancel the login process
-                RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-                rd.forward(request, response);
+                request.getRequestDispatcher("index.jsp").forward(request, response);
             }
         }
     }

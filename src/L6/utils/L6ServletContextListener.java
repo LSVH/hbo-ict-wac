@@ -11,7 +11,7 @@ public class L6ServletContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         L6BlogService service = L6ServiceProvider.getBlogService();
-        service.registerUser("user", "Name ,user", "user@name.com", "user");
+        service.registerUser("user", "Name, user", "user@name.com", "user");
     }
 
     @Override

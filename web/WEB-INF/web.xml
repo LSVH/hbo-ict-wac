@@ -4,26 +4,6 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-    <!-- Students servlet -->
-    <servlet>
-        <servlet-name>StudentsServlet</servlet-name>
-        <servlet-class>DAO.controller.StudentsServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>StudentsServlet</servlet-name>
-        <url-pattern>/DAO/Students</url-pattern>
-    </servlet-mapping>
-
-    <!-- Klassen servlet -->
-    <servlet>
-        <servlet-name>KlassenServlet</servlet-name>
-        <servlet-class>DAO.controller.KlassenServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>KlassenServlet</servlet-name>
-        <url-pattern>/DAO/Klassen</url-pattern>
-    </servlet-mapping>
-
     <!-- doLogin servlet -->
     <servlet>
         <servlet-name>doLogin</servlet-name>
@@ -159,6 +139,16 @@
     <servlet-mapping>
         <servlet-name>L6LogoutServlet</servlet-name>
         <url-pattern>/L6/doLogout</url-pattern>
+    </servlet-mapping>
+
+    <!-- L6 doLogout servlet -->
+    <servlet>
+        <servlet-name>L6PostServlet</servlet-name>
+        <servlet-class>L6.controller.L6PostServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>L6PostServlet</servlet-name>
+        <url-pattern>/L6/doPost</url-pattern>
     </servlet-mapping>
 
     <!-- L6 Servlet Context Listener -->

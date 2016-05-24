@@ -1,8 +1,41 @@
 body {
+    margin: 0;
+    padding: 0;
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+a {
+    color: deepskyblue;
+    text-decoration: none;
+}
+a:hover {
+    color: dodgerblue;
+}
+nav {
+    font-size: 24px;
+    padding: 16px 12px;
+    background-color: gainsboro;
+    border-bottom: 5px solid lightgray;
+}
+nav a {
+    color: darkgray;
+}
+nav a:hover {
+    color: black;
+    background-color: lightgray;
+}
+nav a, nav span {
+    padding: 12px;
+    text-decoration: none;
+    background-color: ghostwhite;
+    -webkit-box-shadow: 0 0 5px darkgray;
+    -moz-box-shadow: 0 0 5px darkgray;
+    box-shadow: 0 0 5px darkgray;
 }
 table {
-    margin: 0 auto;
+    width: 90%;
+    max-width: 512px;
+    margin: 20px auto;
     border-collapse: collapse;
     border: 5px solid lightgray;
 }
@@ -20,4 +53,26 @@ tr:nth-child(odd) {
 }
 small {
     display: block;
+}
+textarea {
+    resize: vertical;
+}
+input, textarea, select {
+    width: 100%;
+    display: inline-block;
+}
+table a {
+    color: whitesmoke;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 0 1px darkgray;
+    -moz-box-shadow: 0 0 1px darkgray;
+    box-shadow: 0 0 1px darkgray;
+    padding: 4px 12px;
+    background-color: lightskyblue;
+}
+table a:hover {
+    color: white;
+    background-color: dodgerblue;
 }

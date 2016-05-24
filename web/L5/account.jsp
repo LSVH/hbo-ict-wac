@@ -19,7 +19,6 @@
         <tr>
             <td></td>
             <td>
-                <a href="posts.jsp">Posts</a>
                 <button type="submit" name="logout" value="true">Logout</button>
             </td>
         </tr>
